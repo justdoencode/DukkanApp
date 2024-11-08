@@ -73,6 +73,19 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
+    project.ext.envConfigFiles = [
+    productiondebug: ".env.production",
+    productionrelease: ".env.production",
+    developmentrelease: ".env.development",
+    developmentdebug: ".env.development",
+    stagingrelease: ".env.staging",
+    stagingdebug: ".env.staging"
+    ]
+
+    apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+
+
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
