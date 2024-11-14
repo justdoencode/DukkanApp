@@ -7,7 +7,7 @@ import Config from "react-native-config";
 const Detail=({route})=>{
     const {id}=route.params
 
-    const {loading,error,data}=useFetch(Config.API_URL + "/" + id);
+    const {loading,error,data}=useFetch(Config.API_PRODUCT_URL + "/" + id);
 
     if(loading){
         return <ActivityIndicator size={"large"}/>
